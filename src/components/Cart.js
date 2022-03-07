@@ -12,13 +12,13 @@ import { Link } from "react-router-dom";
 
 const Cart = ({ incrementValue, increment, decrement, disable }) => {
   const [show, setShow] = useState(false);
-  const [total, setTotal] = useState(0);
+  //const [total, setTotal] = useState(0);
+  let total = 0;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   let cartItems = useSelector((state) => state.product.cart);
-  //console.log(incrementValue);
 
   return (
     <div>
@@ -39,8 +39,6 @@ const Cart = ({ incrementValue, increment, decrement, disable }) => {
         </Modal.Header>
         <Modal.Body>
           {cartItems.map((i, ind) => (
-            // setTotal(total + i.price*i.qty)
-
             <div className="row" key={i.id}>
               <div className="col-6">
                 <div className="row">
@@ -56,6 +54,9 @@ const Cart = ({ incrementValue, increment, decrement, disable }) => {
                   <div className="col-7">
                     <h5>{i.name}</h5>
                     <p className="text-success">Rs.{i.price * i.qty}</p>
+                    <span className="d-none">
+                      {(total = total + i.price * i.qty)}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -100,7 +101,7 @@ const Cart = ({ incrementValue, increment, decrement, disable }) => {
 
         <Modal.Footer>
           <div>
-            <p> Total Amount: 10000 </p>
+            <p> Total Amount: {total} </p>
             <Link to="/checkout">
               <Button variant="success">Checkout</Button>
             </Link>

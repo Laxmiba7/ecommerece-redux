@@ -20,9 +20,10 @@ function Filter() {
       category: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+     
 
       dispatch(searchItem(values.minPrice, values.maxPrice, values.category));
+      setShow(false);
 
       //   let searchedItem = data.filter((i) => {
 

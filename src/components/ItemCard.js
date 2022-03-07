@@ -125,7 +125,7 @@ const ItemCard = (props) => {
           >
             Add to cart
           </button>
-          {console.log(dis)}
+          
         </div>
       </div>
     </div>
