@@ -1,7 +1,9 @@
 import React from 'react'
 import Modal from "react-bootstrap/Modal";
 
-function cartBody() {
+function cartBody(props) {
+  const {product} = props;
+
   return (
     <div>
          <Modal.Body>

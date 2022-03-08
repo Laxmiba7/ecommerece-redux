@@ -9,6 +9,7 @@ import Modal from "react-bootstrap/Modal";
 //import {Cart as Cart1} from "./Cart";
 
 export const Checkout = () => {
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg sticky-top">
@@ -72,7 +73,7 @@ export const Checkout = () => {
                           
                         </div>
                         <div className="col">
-                        <p className="text-success">Rs.1200</p>
+                        <p className="text-success">Rs.0</p>
                         </div>
                      
                   </div>
@@ -267,50 +268,7 @@ export const Checkout = () => {
           </form>
         </div>
       </div>
-      <div>
-        <div>
-          <Modal.Body>
-            <div className="row">
-              <div className="col-6">
-                <div className="row">
-                  <div className="col-5">
-                    <img
-                      src=""
-                      alt="ItemsAdded"
-                      className="img-fluid"
-                      style={{}}
-                    />
-                  </div>
-
-                  <div className="col-7">
-                    <h5>Name</h5>
-                    <p className="text-success">Rs.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-6">
-                <b className="text-success ms-5">Stock</b>
-                <br />
-                <div
-                  className="btn-group buttonStyling"
-                  role="group"
-                  aria-label="Basic outlined example"
-                >
-                  <button type="button" className="btn btn-outline-success">
-                    -
-                  </button>
-                  <button type="button" className="btn btn-outline-success">
-                    0
-                  </button>
-                  <button type="button" className="btn btn-outline-success">
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
-          </Modal.Body>
-        </div>
-      </div>
+      
     </div>
   );
 };

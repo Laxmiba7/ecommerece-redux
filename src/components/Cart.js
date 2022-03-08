@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteItem } from "../redux/action/DeleteItem";
 import Counter from "./Counter";
 import { Link } from "react-router-dom";
+import { checkoutProduct } from "../redux/action/CheckoutProduct";
 
 const Cart = ({ incrementValue, increment, decrement, disable }) => {
   const [show, setShow] = useState(false);
@@ -104,7 +105,7 @@ const Cart = ({ incrementValue, increment, decrement, disable }) => {
             <p> Total Amount: {total} </p>
            <Link to="/checkout" className="disabled">
              
-              <Button disabled= {cartItems.length === 0 ? true : false} variant="success">Checkout</Button>
+              <Button disabled= {cartItems.length === 0 ? true : false} variant="success" onClick={()=>dispatch(checkoutProduct(cartItems))}>Checkout</Button>
             </Link>
             
           </div>
