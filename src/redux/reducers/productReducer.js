@@ -42,7 +42,7 @@ const productReducer = (state = initialState, action) => {
          x.price >= action.payload.minPrice && x.price <= action.payload.maxPrice
          &&  x.category[1] === action.payload.category
        )
-     
+      
       return{
         ...state,
         products: searchedItem
