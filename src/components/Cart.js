@@ -103,10 +103,11 @@ const Cart = ({ incrementValue, increment, decrement, disable }) => {
         <Modal.Footer>
           <div>
             <p> Total Amount: {total} </p>
-           <Link to="/checkout" className="disabled">
+            {cartItems.length === 0 ?  <Button variant="success">Checkout</Button>: <Link to="/checkout">
              
-              <Button disabled= {cartItems.length === 0 ? true : false} variant="success" onClick={()=>dispatch(checkoutProduct(cartItems))}>Checkout</Button>
-            </Link>
+             <Button variant="success">Checkout</Button>
+           </Link>}
+           
             
           </div>
         </Modal.Footer>

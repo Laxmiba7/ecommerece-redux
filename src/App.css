@@ -22,6 +22,9 @@
 .card-img, .card-img-top {
   object-fit: contain;
 }
+.checkout .cart-btn {
+  display: none;
+}
 
 /* .btn-group {
   margin-left: 13rem;

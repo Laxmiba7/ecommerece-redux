@@ -6,13 +6,20 @@ import CartBody from "./CartBody";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Modal from "react-bootstrap/Modal";
-//import {Cart as Cart1} from "./Cart";
+import { Provider, useSelector } from 'react-redux';
+import store  from '../redux/reducers/store';
+
 
 export const Checkout = () => {
+  const checkoutData = useSelector((state)=>state.product.cart);
+  console.log(checkoutData)
 
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg sticky-top">
+   
+<div className="checkout">
+<Header />
+     
+      {/* <nav className="navbar navbar-expand-lg sticky-top">
         <div className="container-fluid">
           <a className="navbar-brand ms-5" href="#">
             Checkout Page
@@ -46,18 +53,23 @@ export const Checkout = () => {
             </div>
           </div>
         </div>
-      </nav>
+      </nav> */}
+      
       <div class="row p-5">
+        
         <div class="col-md-5 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Your cart</span>
             <span class="badge badge-secondary badge-pill">3</span>
           </h4>
           <ul class="list-group mb-3">
+            
             <li class="list-group-item d-flex justify-content-between lh-condensed">
            
-               
+            {checkoutData.map((item)=> {
+             { console.log(item.name)}
                   <div className="row">
+                  
                     
                         <div className="col">
                           <img
@@ -69,16 +81,17 @@ export const Checkout = () => {
                         </div>
 
                         <div className="col">
-                          <h5>Name</h5>
+                          <h5>{item.name}</h5>
                           
                         </div>
                         <div className="col">
-                        <p className="text-success">Rs.0</p>
+                        <p className="text-success">{item.price}</p>
                         </div>
+                  
                      
                   </div>
                 
-           
+              })}
               
             </li>
           
@@ -269,6 +282,6 @@ export const Checkout = () => {
         </div>
       </div>
       
-    </div>
+      </div>
   );
 };

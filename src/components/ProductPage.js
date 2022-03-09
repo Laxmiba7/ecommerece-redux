@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 
 import { AiOutlineStar } from "react-icons/ai";
 
-export const Checkout = () => {
+const Product = ({match}) => {
   return (
     
     <>
+    <Header />
       <div className="row p-5 m-5">
+      
         <div className="col-8">
           <img src="" alt="Product-image"/>
         </div>
@@ -68,6 +70,8 @@ export const Checkout = () => {
         </div>
 
       </div>
+      <h1>{match.params.id}</h1> 
     </>
   );
 };  
+export default Product;

@@ -6,6 +6,7 @@ import { fetchData } from "../redux/action/ProductList";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/action/AddToCart";
 import Counter from "./Counter";
+import { Link } from "react-router-dom";
 
 const ItemCard = (props) => {
   const {
@@ -69,12 +70,15 @@ const ItemCard = (props) => {
     <div className="col-3">
       <div className="card mb-5">
         <div style={{ height: "275px" }}>
+          <Link  to={`/product/${id}`}>
           <img
             src={`https://electronic-ecommerce.herokuapp.com/${image}`}
             className="card-img-top img-fluid"
             alt="..."
             style={{ height: "100%", width: "auto" }}
+            
           />
+          </Link>
         </div>
 
         <div className="card-body">
@@ -110,7 +114,8 @@ const ItemCard = (props) => {
               </button>
             </div>
           </div>
-          <h5 className="card-title mt-2">{name}</h5>
+          
+          <h5 className="card-title mt-2"><Link to="/product" style={{textDecoration:"none", color:"#000"}}>{name}</Link></h5>
           <div className="d-flex justify-content-between">
             <p>Rs.{price}</p>
             <p>Stocks Left: {stock}</p>

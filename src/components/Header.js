@@ -19,17 +19,17 @@ const Header = () => {
     </button>
     <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div className="navbar-nav me-5">
-        <Link className="nav-link active m-2" aria-current="page" to="/home">Home</Link>
-        <button type="button" className="btn text-white position-relative" >
+        <Link to="/"className="nav-link active m-2" aria-current="page" >Home</Link>
+        <button type="button" className="btn text-white position-relative cart-btn " >
         
         <Cart />
         
         </button>
         
         
-        <a className="badgeIcon nav-link" href="#">
+        <Link to="/user" className="badgeIcon nav-link" >
             <CgProfile />
-        </a>
+        </Link>
         
       </div>
     </div>
