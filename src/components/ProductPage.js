@@ -1,77 +1,77 @@
-import React from "react";
-import Header from "./Header";
-import { Link } from "react-router-dom";
+  import React from "react";
+  import Header from "./Header";
+  import { Link, useParams } from "react-router-dom";
+  import { AiOutlineStar } from "react-icons/ai";
+  import { useSelector } from "react-redux";
 
+  const Product = () => {
+    const params = useParams();
+    const userId = params.id;
+    const data = useSelector((state) => state.product.products);
+    const clickedItem = data.filter((x) => x.id == userId);
 
+    return (
+      <div>
+        <Header />
 
-import { AiOutlineStar } from "react-icons/ai";
-
-const Product = ({match}) => {
-  return (
-    
-    <>
-    <Header />
-      <div className="row p-5 m-5">
-      
-        <div className="col-8">
-          <img src="" alt="Product-image"/>
-        </div>
-        <div className="col-4">
-        <div className="card-body">
-          <div className="row">
-            <div className="col">
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <AiOutlineStar />
+        {clickedItem.map((item) => (
+          <div className="row p-5 m-5" key={item.id}>
+            <div className="col-4">
+              <img
+                src={`https://electronic-ecommerce.herokuapp.com/${item.image}`}
+                className="card-img-top img-fluid"
+                style={{ height: "auto", width: "100%"}}
+                alt="Product-image"
+              />
             </div>
-            <div
-              className="btn-group col"
-              role="group"
-              aria-label="Basic outlined example"
-            >
-              <button
-                type="button"
-                className="btn btn-outline-primary"
+            <div className="col-4 m-auto">
+              <div className="card-body">
+                <div className="row">
+                <h5 className="card-title mt-2">{item.name}</h5>
+                <div className="col">
+                    <AiOutlineStar />
+                    <AiOutlineStar />
+                    <AiOutlineStar />
+                    <AiOutlineStar />
+                    <AiOutlineStar />
+                  </div>
+                <div className="d-flex flex-column justify-content-between">
+                  <p>Rs.{item.price}</p>
+                  
+          <p>Powerful Productivity: AMD Ryzen 3 3350U delivers desktop-class performance and amazing battery life in a slim notebook. With Precision Boost, get up to 3.5GHz for your high-demand applications</p>
+          <p>Stocks Left:{item.stock}</p>
+                  
+                </div>
+                  
+                  
+                </div>
                 
-              >
-                -
-              </button>
-              <button type="button" className="btn btn-outline-primary">
-                0
-              </button>
-              <button
-                type="button"
-                className="btn btn-outline-primary"
-               
-              >
-                +
-              </button>
-            </div>
-          </div>
-          <h5 className="card-title mt-2">Name</h5>
-          <div className="d-flex justify-content-between">
-            <p>Rs.</p>
-            <p>Stocks Left:</p>
-          </div>
-         
-          <button
-            type="submit"
-           
-            className="btn btn-primary"
-            
-            
-          >
-            Add to cart
-          </button>
-          
-        </div>
-        </div>
+                
+                <div>
+                <button type="button" className="btn btn-outline-primary me-1">
+                      -
+                    </button>
+                    <button type="button" className="btn btn-outline-primary me-1">
+                      0
+                    </button>
+                    <button type="button" className="btn btn-outline-primary me-1">
+                      +
+                    </button>
+                </div>
 
+                <button type="submit" className="btn btn-primary mt-4">
+                  Add to cart
+                </button>
+              </div>
+            </div>
+            
+          </div>
+          
+
+        ))}
+
+       
       </div>
-      <h1>{match.params.id}</h1> 
-    </>
-  );
-};  
-export default Product;
+    );
+  };
+  export default Product;

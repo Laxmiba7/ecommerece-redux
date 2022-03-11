@@ -62,6 +62,7 @@ export const Checkout = () => {
             <span class="text-muted">Your cart</span>
             <span class="badge badge-secondary badge-pill">3</span>
           </h4>
+          
           <ul class="list-group mb-3">
             
             <li class="list-group-item d-flex justify-content-between lh-condensed">

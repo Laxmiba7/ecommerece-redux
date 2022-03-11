@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteItem } from "../redux/action/DeleteItem";
 import Counter from "./Counter";
 import { Link } from "react-router-dom";
-import { checkoutProduct } from "../redux/action/CheckoutProduct";
+
 
 const Cart = ({ incrementValue, increment, decrement, disable }) => {
   const [show, setShow] = useState(false);
@@ -83,7 +83,7 @@ const Cart = ({ incrementValue, increment, decrement, disable }) => {
                     type="button"
                     disabled={disable}
                     className="btn btn-outline-success"
-                    onClick={increment}
+                    onClick={()=>increment(stock)}
                   >
                     +
                   </button>
